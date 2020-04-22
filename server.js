@@ -26,7 +26,11 @@ app.get('/reserve', function (req, res) {
 
 //API Calls
 app.get('/api/tables', function (req, res) {
-  res.json(tables);
+  res.json(tables.confirmedCustomers);
+});
+
+app.get('/api/waitlist', function (req, res) {
+  res.json(tables.waitingList);
 });
 
 // Create New Characters - takes in JSON input
