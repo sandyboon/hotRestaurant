@@ -72,37 +72,36 @@
     // Get reservations
     $.get("/api/tables", function (data) {
 
+
       $.each(data, function (index, value) {
+        console.log(value)
         const list = `
     <li class='list-group-item mt-4'>
               <h2>Table #${index + 1}</h2>
               <hr>
-              <h2>ID: ${data.id}</h2>
-              <h2>Name: ${data.name}</h2>
-              <h2>Email: ${data.email}</h2>
-              <h2>Phone: ${data.phone}</h2>
-      </li>
+              <h2>ID: ${value.customerID}</h2>
+              <h2>Name: ${value.customerName}</h2>
+              <h2>Email: ${value.customerEmail}</h2>
+              <h2>Phone: ${value.phoneNumber}</h2>
+    <li>
     `
         $('#tableList').append(list)
-
       });
-
-
 
     });
 
     // get waiting list
     $.get("/api/waitlist", function (data) {
-
+      console.log(data)
       $.each(data, function (index, value) {
         const list = `
 <li class='list-group-item mt-4'>
         <h2>Table #${index + 1}</h2>
         <hr>
-        <h2>ID: ${data.id}</h2>
-        <h2>Name: ${data.name}</h2>
-        <h2>Email: ${data.email}</h2>
-        <h2>Phone: ${data.phone}</h2>
+        <h2>ID: ${value.customerID}</h2>
+        <h2>Name: ${value.customerName}</h2>
+        <h2>Email: ${value.customerEmail}</h2>
+        <h2>Phone: ${value.phoneNumber}</h2>
 </li>
 `
         $('#waitList').append(list)
